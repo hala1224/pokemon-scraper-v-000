@@ -14,6 +14,8 @@ attr_accessor :id, :name, :type, :hp, :db
     Pokemon.new(id: pokemon_is_dumb[0], name: pokemon_is_dumb[1], type: pokemon_is_dumb[2], hp: pokemon_is_dumb[3], db: db)
   end
   
-  
+  def alter_hp(new_hp, db)
+    db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", new_hp, self.id)
+  end
     
 end
